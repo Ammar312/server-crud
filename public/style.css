@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: "Raleway", sans-serif; */
+  font-family: "Noto Sans", sans-serif;
+}
+body {
+  background: linear-gradient(to bottom, #2193b0, #6dd5ed);
+  /* background: linear-gradient(to bottom, #ddd6f3, #faaca8); */
+  min-height: 100vh;
+}
+header {
+  background-color: black;
+  /* background-color: rgb(161, 6, 6); */
+  padding: 0.7em 0 0.7em 0;
+}
+header p {
+  text-align: center;
+  font-size: 2.7rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  word-spacing: 0.3em;
+  letter-spacing: 0.05em;
+}
+.formContainer {
+}
+.label {
+  font-size: 1.3rem;
+  color: white;
+}
+.titleForm {
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1.3rem;
+  padding: 0.4em;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.btn {
+  background: white;
+  border: none;
+  font-size: 1.2rem;
+  padding: 0.5em;
+  cursor: pointer;
+  border-radius: 7px;
+  margin-left: 5px;
+}
+.post {
+  min-width: 370px;
+  max-width: 35em;
+  border: 1px solid white;
+  border-radius: 6px;
+  margin: 0.7em 0.2em 0.7em 0.2em;
+}
+.title {
+  border-bottom: 2px solid white;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 0.5em;
+}
+
+.text {
+  font-size: 1.3rem;
+  padding: 0.5em;
+}
+.btnDiv {
+  display: flex;
+  justify-content: space-around;
+}
+.button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  padding: 0.5em;
+  cursor: pointer;
+}
+.editFormDiv {
+  display: block;
+  position: absolute;
+  left: 10vw;
+  top: 30vh;
+  width: 80%;
+  /* max-width: 70vw; */
+  background-color: rgb(51, 52, 53);
+  padding: 0.8em;
+  border-radius: 8px;
+}
+.editForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: aliceblue;
+}
+.editFormInput {
+  font-size: 1.2rem;
+  border-radius: 5px;
+  padding: 0.5em;
+}
+.editFormButton {
+  background: white;
+  border: none;
+  font-size: 1.2rem;
+  padding: 0.5em;
+  cursor: pointer;
+  border-radius: 7px;
+}
+.cross {
+  color: white;
+}
+@media screen and (max-width: 890px) {
+  .Heading {
+    font-size: 3rem;
+  }
+  .fourCon {
+    font-size: 1.1rem;
+  }
+}
+@media screen and (max-width: 720px) {
+  .pContained {
+    justify-content: flex-start;
+  }
+  .Heading {
+    text-align: left;
+    font-size: 2.5rem;
+  }
+  .linkContained {
+    justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 700px) {
+  .fourCon {
+    width: 50%;
+  }
+  .linkCon {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 594px) {
+  .fourCon {
+    width: 90%;
+  }
+  .linkCon {
+    width: 70%;
+  }
+  header p {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .pContained {
+    flex-direction: column;
+  }
+  .fourCon {
+    width: 100%;
+    font-size: 1.2rem;
+    list-style-type: circle;
+  }
+}
+@media screen and (max-width: 410px) {
+  .Heading {
+    font-size: 2rem;
+  }
+  .fourCon {
+    font-size: 0.9rem;
+  }
+  .linkCon {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 350px) {
+  header p {
+    font-size: 1.5rem;
+  }
+  .fourCon {
+    font-size: 0.8rem;
+  }
+  .linkCon {
+    width: 100%;
+    font-size: 1rem;
+  }
+  .Heading {
+    font-size: 1.7rem;
+  }
+}
