@@ -82,7 +82,7 @@ header p {
   cursor: pointer;
 }
 .editFormDiv {
-  display: block;
+  display: none;
   position: absolute;
   left: 10vw;
   top: 30vh;

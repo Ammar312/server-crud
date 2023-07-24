@@ -5,7 +5,7 @@ form.addEventListener("submit", (e) => {
   const title = document.querySelector("#title").value;
   const text = document.querySelector("#text").value;
   axios
-    .post("http://localhost:3000/api/v1/post", {
+    .post("https://wild-ruby-tortoise-hose.cyclic.app/api/v1/post", {
       title: title,
       text: text,
     })
@@ -20,7 +20,7 @@ form.addEventListener("submit", (e) => {
 
 window.addEventListener("load", () => {
   axios
-    .get("http://localhost:3000/api/v1/posts")
+    .get("https://wild-ruby-tortoise-hose.cyclic.app/api/v1/posts")
     .then(function (response) {
       // handle success
       const data = response.data;
@@ -63,7 +63,7 @@ window.addEventListener("load", () => {
 
 const deletePostFunc = (id) => {
   axios
-    .delete(`http://localhost:3000/api/v1/post/${id}`)
+    .delete(`https://wild-ruby-tortoise-hose.cyclic.app/api/v1/post/${id}`)
     .then(function (response) {
       alert(response.data);
     })
@@ -83,7 +83,7 @@ const editPostFunc = (id, title, text) => {
   editForm.addEventListener("submit", (e) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:3000/api/v1/post/${id}`, {
+      .put(`https://wild-ruby-tortoise-hose.cyclic.app/api/v1/post/${id}`, {
         title: editFormTitle.value,
         text: editFormText.value,
       })
