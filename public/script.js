@@ -71,9 +71,6 @@ const deletePostFunc = (id) => {
     // .delete(`https://wild-ruby-tortoise-hose.cyclic.app/api/v1/post/${id}`)
     .then(function (response) {
       displayAlert(response.data, "red");
-      setTimeout(() => {
-        window.location.reload();
-      }, 3000);
     })
     .catch(function (error) {
       displayAlert(error.message, "red");
@@ -98,9 +95,6 @@ const editPostFunc = (id, title, text) => {
       })
       .then(function (response) {
         displayAlert(response.data, "green");
-        setTimeout(() => {
-          window.location.reload();
-        }, 3000);
       })
       .catch(function (error) {
         displayAlert(error.message, "red");
