@@ -5,22 +5,29 @@ form.addEventListener("submit", (e) => {
   const title = document.querySelector("#title").value;
   const text = document.querySelector("#text").value;
   axios
-    .post("https://wild-ruby-tortoise-hose.cyclic.app/api/v1/post", {
+    .post("api/v1/post", {
+      // .post("https://wild-ruby-tortoise-hose.cyclic.app/api/v1/post", {
       title: title,
       text: text,
     })
     .then(function (response) {
       form.reset();
-      alert(response.data);
+      displayAlert(response.data, "black");
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
     })
     .catch(function (error) {
       console.log(error);
     });
+  document.querySelector("#formContainer").style.display = "none";
+  createPostBtn.style.display = "block";
 });
 
 window.addEventListener("load", () => {
   axios
-    .get("https://wild-ruby-tortoise-hose.cyclic.app/api/v1/posts")
+    .get("api/v1/posts")
+    // .get("https://wild-ruby-tortoise-hose.cyclic.app/api/v1/posts")
     .then(function (response) {
       // handle success
       const data = response.data;
@@ -63,9 +70,13 @@ window.addEventListener("load", () => {
 
 const deletePostFunc = (id) => {
   axios
-    .delete(`https://wild-ruby-tortoise-hose.cyclic.app/api/v1/post/${id}`)
+    .delete(`api/v1/post/${id}`)
+    // .delete(`https://wild-ruby-tortoise-hose.cyclic.app/api/v1/post/${id}`)
     .then(function (response) {
-      alert(response.data);
+      displayAlert(response.data, "red");
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
     })
     .catch(function (error) {
       console.log(error);
@@ -80,22 +91,29 @@ const editPostFunc = (id, title, text) => {
   const editFormText = document.querySelector("#editFormText");
   editFormTitle.value = title;
   editFormText.value = text;
-  editForm.addEventListener("submit", (e) => {
+  const editFormFunc = (e) => {
     e.preventDefault();
     axios
-      .put(`https://wild-ruby-tortoise-hose.cyclic.app/api/v1/post/${id}`, {
+      .put(`api/v1/post/${id}`, {
+        //   .put(`https://wild-ruby-tortoise-hose.cyclic.app/api/v1/post/${id}`, {
         title: editFormTitle.value,
         text: editFormText.value,
       })
       .then(function (response) {
-        alert(response.data);
+        displayAlert(response.data, "green");
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
       })
       .catch(function (error) {
         console.log(error);
       });
     editForm.reset();
     editFormDiv.style.display = "none";
-  });
+    editForm.removeEventListener("submit", editFormFunc);
+  };
+
+  editForm.addEventListener("submit", editFormFunc);
 };
 
 const cross = document.querySelector("#cross");
@@ -103,3 +121,20 @@ cross.addEventListener("click", () => {
   const editFormDiv = document.querySelector("#editFormDiv");
   editFormDiv.style.display = "none";
 });
+
+const createPostBtn = document.querySelector("#createPostBtn");
+createPostBtn.addEventListener("click", () => {
+  document.querySelector("#formContainer").style.display = "block";
+  createPostBtn.style.display = "none";
+});
+
+const alertBox = document.querySelector("#alertBox");
+const displayAlert = (txt, clss) => {
+  alertBox.textContent = txt;
+  alertBox.classList.add(clss);
+  // remove alert
+  setTimeout(() => {
+    alertBox.textContent = "";
+    alertBox.classList.remove(clss);
+  }, 2000);
+};

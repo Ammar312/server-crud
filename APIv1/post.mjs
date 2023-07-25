@@ -1,6 +1,8 @@
 import express from "express";
 import { nanoid } from "nanoid";
 const router = express.Router();
+const dateVar = JSON.stringify(new Date());
+const result = dateVar.slice(0, 11);
 
 let posts = [
   {
@@ -23,8 +25,8 @@ router.post("/post", (req, res, next) => {
     res.status(403).send(`Required parameter missing`);
     return;
   }
-  posts.push({ id: nanoid(), title: req.body.title, text: req.body.text });
-  res.send(`Post Created ${new Date()}`);
+  posts.unshift({ id: nanoid(), title: req.body.title, text: req.body.text });
+  res.send(`Post Created at ${result}`);
 });
 
 router.put("/post/:postId", (req, res, next) => {
@@ -52,7 +54,6 @@ router.put("/post/:postId", (req, res, next) => {
 
 router.delete("/post/:postId", (req, res, next) => {
   const id = req.params.postId;
-  console.log(id);
   let isFound = false;
   for (let i = 0; i < posts.length; i++) {
     if (posts[i].id === id) {

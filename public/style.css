@@ -5,12 +5,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-family: "Raleway", sans-serif; */
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Raleway", sans-serif;
+  /* font-family: "Noto Sans", sans-serif; */
 }
 body {
-  background: linear-gradient(to bottom, #2193b0, #6dd5ed);
-  /* background: linear-gradient(to bottom, #ddd6f3, #faaca8); */
+  /* background: linear-gradient(to bottom, #2193b0, #6dd5ed); */
+  background: linear-gradient(to bottom, #979da1, #2c3e50);
   min-height: 100vh;
 }
 header {
@@ -27,7 +27,27 @@ header p {
   word-spacing: 0.3em;
   letter-spacing: 0.05em;
 }
+.createPostBtn {
+  font-size: 1.5rem;
+  color: white;
+  border: 1px solid white;
+  padding: 0.5em;
+  margin: 1em;
+  margin-left: 0.5em;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 6px;
+  transition: all 0.7s ease;
+}
+.createPostBtn:hover {
+  background-color: aliceblue;
+  color: #2c3e50;
+}
 .formContainer {
+  display: none;
+}
+.formContainer form {
+  padding: 1em;
 }
 .label {
   font-size: 1.3rem;
@@ -50,42 +70,61 @@ header p {
   padding: 0.5em;
   cursor: pointer;
   border-radius: 7px;
-  margin-left: 5px;
+  margin-left: 50px;
+  margin-top: 5px;
+  width: 5em;
 }
 .post {
   min-width: 370px;
   max-width: 35em;
-  border: 1px solid white;
-  border-radius: 6px;
+  border: 2px solid white;
+  border-radius: 3px;
   margin: 0.7em 0.2em 0.7em 0.2em;
 }
 .title {
-  border-bottom: 2px solid white;
+  border-bottom: 1px solid white;
   font-size: 1.5rem;
-  text-transform: uppercase;
   padding: 0.5em;
+  color: white;
+  text-transform: capitalize;
+  font-weight: 600;
 }
 
 .text {
   font-size: 1.3rem;
   padding: 0.5em;
+  min-height: 4em;
+  color: white;
 }
 .btnDiv {
   display: flex;
   justify-content: space-around;
 }
+
 .button {
   background: none;
   border: none;
-  font-size: 1rem;
+  font-size: 1.2rem;
   padding: 0.5em;
   cursor: pointer;
+  color: white;
+}
+.button:first-child:hover {
+  color: red;
+  border: 1px solid red;
+  border-radius: 5px;
+}
+.button:last-child:hover {
+  color: rgb(255, 188, 20);
+  border: 1px solid rgb(255, 188, 18);
+  border-radius: 5px;
 }
 .editFormDiv {
   display: none;
-  position: absolute;
+  position: sticky;
+  position: -webkit-sticky;
   left: 10vw;
-  top: 30vh;
+  bottom: 22vh;
   width: 80%;
   /* max-width: 70vw; */
   background-color: rgb(51, 52, 53);
@@ -114,6 +153,33 @@ header p {
 }
 .cross {
   color: white;
+}
+.alertBox {
+  position: sticky;
+  bottom: 70%;
+  left: 80%;
+  width: auto;
+  font-size: 1.2rem;
+  padding: 0.2em 0.8rem 0.2rem 0.8rem;
+  border-radius: 5px;
+  color: white;
+  visibility: hidden;
+}
+.red {
+  visibility: visible;
+  background: rgb(243, 40, 40);
+}
+.blue {
+  visibility: visible;
+  background: blue;
+}
+.green {
+  visibility: visible;
+  background: #56ab2f;
+}
+.black {
+  visibility: visible;
+  background: black;
 }
 @media screen and (max-width: 890px) {
   .Heading {
