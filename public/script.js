@@ -13,12 +13,9 @@ form.addEventListener("submit", (e) => {
     .then(function (response) {
       form.reset();
       displayAlert(response.data, "black");
-      setTimeout(() => {
-        window.location.reload();
-      }, 3000);
     })
     .catch(function (error) {
-      console.log(error);
+      displayAlert(error.message, "red");
     });
   document.querySelector("#formContainer").style.display = "none";
   createPostBtn.style.display = "block";
@@ -64,7 +61,7 @@ window.addEventListener("load", () => {
     })
     .catch(function (error) {
       // handle error
-      console.log(error);
+      displayAlert(error.message, "red");
     });
 });
 
@@ -79,7 +76,7 @@ const deletePostFunc = (id) => {
       }, 3000);
     })
     .catch(function (error) {
-      console.log(error);
+      displayAlert(error.message, "red");
     });
 };
 
@@ -106,7 +103,7 @@ const editPostFunc = (id, title, text) => {
         }, 3000);
       })
       .catch(function (error) {
-        console.log(error);
+        displayAlert(error.message, "red");
       });
     editForm.reset();
     editFormDiv.style.display = "none";
